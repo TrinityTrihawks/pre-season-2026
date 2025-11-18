@@ -4,16 +4,16 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.motorsubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
-
+import frc.robot.subsystems.motorsubsystem;
 
 /** An example command that uses an example subsystem. */
 public class go_morbor extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final motorsubsystem m_subsystem;
-private final double speeding;
+
+  private final double speeding;
+
   /**
    * Creates a new ExampleCommand.
    *
@@ -47,5 +47,4 @@ private final double speeding;
   public boolean isFinished() {
     return false;
   }
-
 }

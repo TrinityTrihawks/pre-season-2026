@@ -6,20 +6,18 @@ package frc.robot.subsystems;
 
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
-
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
-  
+
   private final SparkMax leftMotor1 = new SparkMax(18, MotorType.kBrushless);
   private final SparkMax leftMotor2 = new SparkMax(18, MotorType.kBrushless);
   private final SparkMax rightMotor1 = new SparkMax(18, MotorType.kBrushless);
-  private final SparkMax rightMotor2 = new SparkMax(18, MotorType.kBrushless);  /** Creates a new ExampleSubsystem. */
-  
+  private final SparkMax rightMotor2 = new SparkMax(18, MotorType.kBrushless);
+
+  /** Creates a new ExampleSubsystem. */
   public DriveSubsystem() {}
-
-
 
   /**
    * Example command factory method.
@@ -55,11 +53,12 @@ public class DriveSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
 
-  public void leftMotors(double leftSpeed){
+  public void leftMotors(double leftSpeed) {
     leftMotor1.setVoltage(leftSpeed);
     leftMotor2.setVoltage(leftSpeed);
   }
-  public void rightMotors(double rightSpeed){
+
+  public void rightMotors(double rightSpeed) {
     rightMotor1.setVoltage(rightSpeed);
     rightMotor2.setVoltage(rightSpeed);
   }
