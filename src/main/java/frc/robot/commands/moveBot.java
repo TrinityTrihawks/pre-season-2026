@@ -4,12 +4,8 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.ExampleSubsystem;
-
-import com.ctre.phoenix6.swerve.SwerveModuleConstants.DriveMotorArrangement;
-
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.DriveSubsystem;
 
 /** An example command that uses an example subsystem. */
 public class moveBot extends Command {
