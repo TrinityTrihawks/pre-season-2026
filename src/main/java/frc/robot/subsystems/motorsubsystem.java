@@ -18,7 +18,7 @@ public class motorsubsystem extends SubsystemBase {
  // private final SparkMax m_morbor = new SparkMax(18, MotorType.kBrushless);
   /** Creates a new ExampleSubsystem. */
   public motorsubsystem() {}
-
+private SparkMax m_morbor;
   /**
    * Example command factory method.
    *
