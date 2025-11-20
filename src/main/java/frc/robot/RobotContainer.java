@@ -2,12 +2,15 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
+
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.go_morbor;
+import frc.robot.commands.moveBot;
+import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.motorsubsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -24,6 +27,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final motorsubsystem motorsubsystem = new motorsubsystem();
+  private final DriveSubsystem drive = new DriveSubsystem();
 
   private double speeed;
 
@@ -35,6 +39,9 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    drive.setDefaultCommand(                     /** set the drive command as the default */
+      new moveBot(drive, m_driverController));
+      
     // Configure the trigger bindings
     configureBindings();
 
@@ -62,7 +69,6 @@ SmartDashboard.putNumber("morber speeed", speeed);
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    
     m_driverController.b().whileTrue(new go_morbor(motorsubsystem, speeed));
     m_driverController.a().whileTrue(new go_morbor(motorsubsystem, -speeed));
 
