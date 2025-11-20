@@ -10,6 +10,7 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.intake_motors;
 import frc.robot.commands.moveBot;
+import frc.robot.commands.wrist_motor;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.motorsubsystem;
@@ -71,6 +72,8 @@ SmartDashboard.putNumber("intake speed", speeed);
     // cancelling on release.
     m_driverController.b().whileTrue(new intake_motors(motorsubsystem, speeed));
     m_driverController.a().whileTrue(new intake_motors(motorsubsystem, -speeed));
+
+    m_driverController.x().whileTrue(new wrist_motor(motorsubsystem,3));
 
   }
 // :D
