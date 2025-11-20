@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 
@@ -44,8 +45,8 @@ private double lY;
 leftY = controller.getLeftY();
 rightY = controller.getRightY();
 
-lY = Math.pow(leftY,3);
-rY = Math.pow(rightY,3);
+lY = Math.pow(leftY,3) * OperatorConstants.speed_constant;
+rY = Math.pow(rightY,3) * OperatorConstants.speed_constant;
 m_subsystem.leftMotors(-lY);
 m_subsystem.rightMotors(rY);
 
