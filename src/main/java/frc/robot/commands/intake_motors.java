@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 
 /** An example command that uses an example subsystem. */
-public class go_morbor extends Command {
+public class intake_motors extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final motorsubsystem m_subsystem;
 private final double speeding;
@@ -19,7 +19,7 @@ private final double speeding;
    *
    * @param subsystem The subsystem used by this command.
    */
-  public go_morbor(motorsubsystem subsystem, double speed) {
+  public intake_motors(motorsubsystem subsystem, double speed) {
     m_subsystem = subsystem;
     speeding = speed;
     // Use addRequirements() here to declare subsystem dependencies.
@@ -33,13 +33,13 @@ private final double speeding;
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.m_morbor(speeding);
+    m_subsystem.m_intake(speeding);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_subsystem.m_morbor(0);
+    m_subsystem.m_intake(0);
   }
 
   // Returns true when the command should end.

@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
 public class motorsubsystem extends SubsystemBase {
- // private final SparkMax m_morbor = new SparkMax(18, MotorType.kBrushless);
+ private final SparkMax m_morbor = new SparkMax(18, MotorType.kBrushless);
   /** Creates a new ExampleSubsystem. */
   public motorsubsystem() {}
 
@@ -52,7 +52,7 @@ public class motorsubsystem extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
-  public void m_morbor(double speed){
+  public void m_intake(double speed){
   m_morbor.setVoltage(speed);
 }
 }

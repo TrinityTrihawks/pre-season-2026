@@ -8,7 +8,7 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
-import frc.robot.commands.go_morbor;
+import frc.robot.commands.intake_motors;
 import frc.robot.commands.moveBot;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -39,8 +39,8 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    drive.setDefaultCommand(                     /** set the drive command as the default */
-      new moveBot(drive, m_driverController));
+    // drive.setDefaultCommand(                     /** set the drive command as the default */
+    //   new moveBot(drive, m_driverController));
       
     // Configure the trigger bindings
     configureBindings();
@@ -48,8 +48,8 @@ public class RobotContainer {
   }
 
 public void SmartDashboardSomething() {
-speeed = SmartDashboard.getNumber("morber speeeeeeed",1);
-SmartDashboard.putNumber("morber speeed", speeed);
+speeed = SmartDashboard.getNumber("intake speed",1);
+SmartDashboard.putNumber("intake speed", speeed);
 
 }
 
@@ -69,8 +69,8 @@ SmartDashboard.putNumber("morber speeed", speeed);
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.b().whileTrue(new go_morbor(motorsubsystem, speeed));
-    m_driverController.a().whileTrue(new go_morbor(motorsubsystem, -speeed));
+    m_driverController.b().whileTrue(new intake_motors(motorsubsystem, speeed));
+    m_driverController.a().whileTrue(new intake_motors(motorsubsystem, -speeed));
 
   }
 // :D
