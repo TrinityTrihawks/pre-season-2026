@@ -10,9 +10,10 @@ import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.commands.intake_motors;
 import frc.robot.commands.moveBot;
+import frc.robot.commands.pitch_is_fun;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
-import frc.robot.subsystems.motorsubsystem;
+import frc.robot.subsystems.arm_subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -26,7 +27,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final motorsubsystem motorsubsystem = new motorsubsystem();
+  private final arm_subsystem motorsubsystem = new arm_subsystem();
   private final DriveSubsystem drive = new DriveSubsystem();
 
   private double speeed;
@@ -71,6 +72,9 @@ SmartDashboard.putNumber("intake speed", speeed);
     // cancelling on release.
     m_driverController.b().whileTrue(new intake_motors(motorsubsystem, speeed));
     m_driverController.a().whileTrue(new intake_motors(motorsubsystem, -speeed));
+
+    m_driverController.x().whileTrue(new pitch_is_fun(motorsubsystem, speeed));
+    m_driverController.y().whileTrue(new pitch_is_fun(motorsubsystem, -speeed));
 
   }
 // :D

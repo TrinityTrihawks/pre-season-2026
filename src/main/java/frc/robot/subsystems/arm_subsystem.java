@@ -4,8 +4,6 @@
 
 package frc.robot.subsystems;
 
-
-
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.config.SparkMaxConfig;
@@ -13,13 +11,15 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-
 public class arm_subsystem extends SubsystemBase {
- private final SparkMax m_morbor = new SparkMax(18, MotorType.kBrushless);
-  /** Creates a new ExampleSubsystem. */
-  public arm_subsystem() {}
+  private final SparkMax m_morbor = new SparkMax(16, MotorType.kBrushless);
+  private final SparkMax m_pitch = new SparkMax(16, MotorType.kBrushless);
 
   /**
+   * Creates a new ExampleSubsystem.
+   * public arm_subsystem() {}
+   * 
+   * /**
    * Example command factory method.
    *
    * @return a command
@@ -34,7 +34,8 @@ public class arm_subsystem extends SubsystemBase {
   }
 
   /**
-   * An example method querying a boolean state of the subsystem (for example, a digital sensor).
+   * An example method querying a boolean state of the subsystem (for example, a
+   * digital sensor).
    *
    * @return value of some boolean subsystem state, such as a digital sensor.
    */
@@ -52,7 +53,12 @@ public class arm_subsystem extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
-  public void m_intake(double speed){
-  m_morbor.setVoltage(speed);
-}
+
+  public void m_intake(double speed) {
+    m_morbor.setVoltage(speed);
+  }
+
+  public void m_pitch(double speed) {
+    m_pitch.setVoltage(speed);
+  }
 }

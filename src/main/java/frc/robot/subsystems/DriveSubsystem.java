@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
   
-  // private final SparkMax leftMotor1 = new SparkMax(12, MotorType.kBrushless);
-  // private final SparkMax leftMotor2 = new SparkMax(13, MotorType.kBrushless);
-  // private final SparkMax rightMotor1 = new SparkMax(15, MotorType.kBrushless);
-  // private final SparkMax rightMotor2 = new SparkMax(18, MotorType.kBrushless);  /** Creates a new ExampleSubsystem. */
+  private final SparkMax leftMotorFront = new SparkMax(11, MotorType.kBrushless);
+  private final SparkMax leftMotorBack = new SparkMax(12, MotorType.kBrushless);
+  private final SparkMax rightMotorFront = new SparkMax(13, MotorType.kBrushless);
+  private final SparkMax rightMotorBack = new SparkMax(14, MotorType.kBrushless);  /** Creates a new ExampleSubsystem. */
   
   public DriveSubsystem() {}
 
@@ -56,11 +56,25 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   // public void leftMotors(double leftSpeed){
-  //   leftMotor1.setVoltage(leftSpeed);
-  //   leftMotor2.setVoltage(leftSpeed);
+  //   leftMotorFront.setVoltage(leftSpeed);
+  //   leftMotorBack.setVoltage(leftSpeed);
   // }
   // public void rightMotors(double rightSpeed){
-  //   rightMotor1.setVoltage(rightSpeed);
-  //   rightMotor2.setVoltage(rightSpeed);
+  //   rightMotorFront.setVoltage(rightSpeed);
+  //   rightMotorBack.setVoltage(rightSpeed);
   // }
+
+  
+  public void leftMotorFront(double leftSpeedFront){
+    leftMotorFront.setVoltage(leftSpeedFront);
+  }
+  public void leftMotorBack(double leftSpeedBack){
+    leftMotorBack.setVoltage(leftSpeedBack);
+  }
+  public void rightMotorFront(double leftSpeedFront){
+    rightMotorFront.setVoltage(leftSpeedFront);
+  }
+  public void rightMotorBack(double leftSpeedBack){
+    rightMotorBack.setVoltage(leftSpeedBack);
+  }
 }

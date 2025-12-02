@@ -19,9 +19,12 @@ public class moveBot extends Command {
   private final DriveSubsystem m_subsystem;
 private final CommandXboxController controller;
 private double leftY;
-private double rightY;
-private double rY;
+private double leftX;
+private double rightX;
 private double lY;
+private double lX;
+private double rX;
+private double denominator;
 /**
    * Creates a new ExampleCommand.
    *
@@ -42,12 +45,19 @@ private double lY;
   @Override
   public void execute() {
 leftY = controller.getLeftY();
-rightY = controller.getRightY();
+leftX = controller.getLeftX();
+rightX = controller.getRightX();
 
 lY = Math.pow(leftY,3);
-rY = Math.pow(rightY,3);
-// m_subsystem.leftMotors(lY);
-// m_subsystem.rightMotors(rY);
+lX = Math.pow(leftX,3);
+rX = Math.pow(rightX,3);
+
+double denominator = Math.max(Math.abs(lY) + Math.abs(lX) + Math.abs(rX), 1);
+
+m_subsystem.leftMotorFront((lY + lX + rX)/denominator);
+m_subsystem.leftMotorBack((lY - lX + rX)/denominator);
+m_subsystem.rightMotorFront((lY + lX - rX)/denominator);
+m_subsystem.rightMotorBack((lY - lX - rX)/denominator);
 
 }
 
