@@ -8,20 +8,20 @@ import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.arm_subsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
-
 /** An example command that uses an example subsystem. */
-public class intake_motors extends Command {
+public class pitch_is_fun extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final arm_subsystem m_subsystem;
-private final double speeding;
+  private double sonic;
+
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public intake_motors(arm_subsystem subsystem, double speed) {
+  public pitch_is_fun(arm_subsystem subsystem, double speed) {
     m_subsystem = subsystem;
-    speeding = speed;
+    sonic = speed;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -33,13 +33,13 @@ private final double speeding;
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.m_intake(speeding);
+    m_subsystem.m_pitch(sonic);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_subsystem.m_intake(0);
+    m_subsystem.m_pitch(0);
   }
 
   // Returns true when the command should end.
@@ -47,5 +47,4 @@ private final double speeding;
   public boolean isFinished() {
     return false;
   }
-
 }
