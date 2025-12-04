@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.AbsoluteEncoder;
 import com.revrobotics.spark.SparkClosedLoopController;
 import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
@@ -17,6 +18,9 @@ public class motorsubsystem extends SubsystemBase {
   private final SparkMax wrist_motor = new SparkMax(17, MotorType.kBrushless);
  // private final SparkMax m_morbor = new SparkMax(18, MotorType.kBrushless);
   /** Creates a new ExampleSubsystem. */
+
+private AbsoluteEncoder wrist_Encoder = wrist_motor.getAbsoluteEncoder();
+
   public motorsubsystem() {}
 
   /**
@@ -62,6 +66,9 @@ public class motorsubsystem extends SubsystemBase {
 
   public void m_intake(double motor_speed){
     // this is the motor speed for the wrist motor.
+  }
+  public double getwristposition(){
+    return wrist_Encoder.getPosition();
   }
 }
 //}

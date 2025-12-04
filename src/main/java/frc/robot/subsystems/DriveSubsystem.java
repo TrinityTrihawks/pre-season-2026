@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
   
-  //private final SparkMax leftMotor1 = new SparkMax(12, MotorType.kBrushless);
-  // private final SparkMax leftMotor2 = new SparkMax(13, MotorType.kBrushless);
-  // private final SparkMax rightMotor1 = new SparkMax(15, MotorType.kBrushless);
-  // private final SparkMax rightMotor2 = new SparkMax(18, MotorType.kBrushless);  /** Creates a new ExampleSubsystem. */
+  private final SparkMax leftMotorFront = new SparkMax(17, MotorType.kBrushless);
+  private final SparkMax leftMotorBack = new SparkMax(18, MotorType.kBrushless);
+  private final SparkMax rightMotorFront = new SparkMax(15, MotorType.kBrushless);
+  private final SparkMax rightMotorBack = new SparkMax(20, MotorType.kBrushless);  /** Creates a new ExampleSubsystem. */
   
   public DriveSubsystem() {}
 
@@ -55,12 +55,15 @@ public class DriveSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
 
-  // public void leftMotors(double leftSpeed){
-  //   leftMotor1.setVoltage(leftSpeed);
-  //   leftMotor2.setVoltage(leftSpeed);
-  // }
-  // public void rightMotors(double rightSpeed){
-  //   rightMotor1.setVoltage(rightSpeed);
-  //   rightMotor2.setVoltage(rightSpeed);
-  // }
+  public void leftMotors(double leftSpeed){
+     leftMotorFront.setVoltage(leftSpeed);
+     leftMotorBack.setVoltage(leftSpeed);
+   }
+
+
+   public void rightMotors(double rightSpeed){
+     rightMotorFront.setVoltage(rightSpeed);
+     rightMotorBack.setVoltage(rightSpeed);
+     // this is louis, you just 
+   }
 }

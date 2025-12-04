@@ -22,7 +22,7 @@ private double leftY;
 private double rightY;
 private double rY;
 private double lY;
-/**
+/** 
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.

@@ -51,7 +51,7 @@ public class RobotContainer {
 public void SmartDashboardSomething() {
 speeed = SmartDashboard.getNumber("intake speed",1);
 SmartDashboard.putNumber("intake speed", speeed);
-
+SmartDashboard.putNumber("wrist encoder", motorsubsystem.getwristposition());
 }
 
   /**
@@ -73,8 +73,11 @@ SmartDashboard.putNumber("intake speed", speeed);
     m_driverController.b().whileTrue(new intake_motors(motorsubsystem, speeed));
     m_driverController.a().whileTrue(new intake_motors(motorsubsystem, -speeed));
 
-    m_driverController.x().whileTrue(new wrist_motor(motorsubsystem,3));
+    m_driverController.rightBumper().whileTrue(new wrist_motor(motorsubsystem,1));
+    m_driverController.leftBumper().whileTrue(new wrist_motor(motorsubsystem,-1));
 
+
+    //m_driverController.leftStick().whileTrue(new (motorsubsystem,1));
   }
 // :D
   /**
