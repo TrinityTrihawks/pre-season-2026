@@ -26,7 +26,7 @@ private double currpos;
   public wrist_motor(motorsubsystem subsystem, double speed, double pos1) {
     m_subsystem = subsystem;
     speeding = speed;
-    pos=pos1;
+    pos = pos1;
   
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
