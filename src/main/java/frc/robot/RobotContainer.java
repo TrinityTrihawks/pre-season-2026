@@ -73,8 +73,8 @@ SmartDashboard.putNumber("wrist encoder", motorsubsystem.getwristposition());
     m_driverController.b().whileTrue(new intake_motors(motorsubsystem, speeed));
     m_driverController.a().whileTrue(new intake_motors(motorsubsystem, -speeed));
 
-    m_driverController.rightBumper().whileTrue(new wrist_motor(motorsubsystem,1));
-    m_driverController.leftBumper().whileTrue(new wrist_motor(motorsubsystem,-1));
+    m_driverController.rightBumper().whileTrue(new wrist_motor(motorsubsystem,1, 0.76));
+    m_driverController.leftBumper().whileTrue(new wrist_motor(motorsubsystem,-1, 0.48));
 
 
     //m_driverController.leftStick().whileTrue(new (motorsubsystem,1));

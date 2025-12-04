@@ -9,19 +9,25 @@ import frc.robot.subsystems.motorsubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
+
+
 /** An example command that uses an example subsystem. */
 public class wrist_motor extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final motorsubsystem m_subsystem;
 private final double speeding;
+private double pos;
+private double currpos;
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public wrist_motor(motorsubsystem subsystem, double speed) {
+  public wrist_motor(motorsubsystem subsystem, double speed, double pos1) {
     m_subsystem = subsystem;
     speeding = speed;
+    pos=pos1;
+  
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -33,7 +39,15 @@ private final double speeding;
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_subsystem.wrist_motor(speeding);
+    double error;
+    currpos = m_subsystem.getwristposition();
+    error = pos - currpos;
+    if (error <= 0.05){
+      m_subsystem.wrist_motor(0);
+    }else{
+      m_subsystem.wrist_motor(speeding);
+    }
+   
   }
 
   // Called once the command ends or is interrupted.
