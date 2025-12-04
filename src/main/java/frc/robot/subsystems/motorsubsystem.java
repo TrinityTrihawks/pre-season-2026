@@ -15,10 +15,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
 public class motorsubsystem extends SubsystemBase {
- // private final SparkMax m_morbor = new SparkMax(18, MotorType.kBrushless);
+  private final SparkMax m_morbor = new SparkMax(14, MotorType.kBrushless);
   /** Creates a new ExampleSubsystem. */
   public motorsubsystem() {}
-private SparkMax m_morbor;
+
   /**
    * Example command factory method.
    *

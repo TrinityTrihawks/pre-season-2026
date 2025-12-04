@@ -34,6 +34,8 @@ public class RobotContainer {
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
       new CommandXboxController(0);
+  private final CommandXboxController m_subsystemController =
+      new CommandXboxController(1);
 
 
 
@@ -69,8 +71,8 @@ SmartDashboard.putNumber("morber speeed", speeed);
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.b().whileTrue(new go_morbor(motorsubsystem, speeed));
-    m_driverController.a().whileTrue(new go_morbor(motorsubsystem, -speeed));
+    m_subsystemController.b().whileTrue(new go_morbor(motorsubsystem, speeed));
+    m_subsystemController.a().whileTrue(new go_morbor(motorsubsystem, -speeed));
 
   }
 // :D

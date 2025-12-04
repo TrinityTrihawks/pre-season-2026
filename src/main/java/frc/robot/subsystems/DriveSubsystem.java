@@ -12,10 +12,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
   
-  private final SparkMax leftMotor1 = new SparkMax(13, MotorType.kBrushless);
-  private final SparkMax leftMotor2 = new SparkMax(12, MotorType.kBrushless);
-  private final SparkMax rightMotor1 = new SparkMax(11, MotorType.kBrushless);
-  private final SparkMax rightMotor2 = new SparkMax(10, MotorType.kBrushless);  /** Creates a new ExampleSubsystem. */
+  private final SparkMax leftMotor1 = new SparkMax(10, MotorType.kBrushless);
+  private final SparkMax leftMotor2 = new SparkMax(11, MotorType.kBrushless);
+  private final SparkMax rightMotor1 = new SparkMax(12, MotorType.kBrushless);
+  private final SparkMax rightMotor2 = new SparkMax(13, MotorType.kBrushless);  /** Creates a new ExampleSubsystem. */
   
   public DriveSubsystem() {}
 
