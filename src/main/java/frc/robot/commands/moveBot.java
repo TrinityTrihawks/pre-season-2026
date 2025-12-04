@@ -47,8 +47,8 @@ rightY = controller.getRightY();
 
 lY = Math.pow(leftY,3) * OperatorConstants.speed_constant;
 rY = Math.pow(rightY,3) * OperatorConstants.speed_constant;
-m_subsystem.leftMotors(-lY);
-m_subsystem.rightMotors(rY);
+m_subsystem.leftMotors(lY);
+m_subsystem.rightMotors(-rY);
 
 }
 

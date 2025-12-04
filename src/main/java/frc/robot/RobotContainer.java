@@ -50,7 +50,7 @@ public class RobotContainer {
   }
 
 public void SmartDashboardSomething() {
-speeed = SmartDashboard.getNumber("morber speeeeeeed",1);
+speeed = SmartDashboard.getNumber("morber speeeeeeed",0.5);
 SmartDashboard.putNumber("morber speeed", speeed);
 
 }
