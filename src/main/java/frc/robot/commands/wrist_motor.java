@@ -37,18 +37,19 @@ private double currpos;
   public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
-  @Override
-  public void execute() {
-    double error;
-    currpos = m_subsystem.getwristposition();
-    error = pos - currpos;
-    if (error <= 0.05){
-      m_subsystem.wrist_motor(0);
-    }else{
-      m_subsystem.wrist_motor(speeding);
-    }
+ @Override
+ public void execute() {
+   double error;
+   currpos = m_subsystem.getwristposition();
+   error = pos - currpos;
+
+   if (Math.abs(error) <= 0.02){
+     m_subsystem.wrist_motor(0);
+   }else{
+     m_subsystem.wrist_motor(speeding);
+   }
    
-  }
+ }
 
   // Called once the command ends or is interrupted.
   @Override
